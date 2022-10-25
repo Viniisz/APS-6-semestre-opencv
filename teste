@@ -16,7 +16,7 @@ from pycep_correios import get_address_from_cep, WebService
 
 # Extrair texto da imagem
 
-image = '/content/imagens/endereco.jpeg'
+image = '/pasta/imagem'
 
 reader = easyocr.Reader(['pt'], gpu=False)
 result = reader.readtext(image, detail = 0, paragraph=True) # ,detail = 0  # paragraph=True
