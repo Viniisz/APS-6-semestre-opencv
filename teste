@@ -1,7 +1,10 @@
 
-pip install easyocr
-pip install pycep-correios
 
+
+!pip install easyocr
+!pip install pycep-correios
+!pip install opencv-python
+!pip install pytorch torchvideo torchaudio
 
 
 import easyocr
@@ -10,12 +13,14 @@ from matplotlib import pyplot as plt
 import numpy as np
 from pycep_correios import get_address_from_cep, WebService
 
+
 # Extrair texto da imagem
 
-image = '/bin/images/endereco.jpeg'
+image = '/content/imagens/endereco.jpeg'
 
 reader = easyocr.Reader(['pt'], gpu=False)
-result = reader.readtext(image, detail = 0) #,detail = 0
+result = reader.readtext(image, detail = 0, paragraph=True) # ,detail = 0  # paragraph=True
+                                        
 
 result
 
@@ -24,7 +29,7 @@ result
 
 # Busca do CEP
 
-address = get_address_from_cep('37503-130', webservice=WebService.APICEP)
+#address = get_address_from_cep('37503-130', webservice=WebService.APICEP)
 
 # Busca do CEP
 
@@ -39,6 +44,5 @@ address = get_address_from_cep('37503-130', webservice=WebService.APICEP)
 #img = cv2.putText(img, text, top_left, font, .5, (0, 0, 0), 1, cv2.LINE_AA)
 #plt.imshow(img)
 #plt.show()
-
 
 
